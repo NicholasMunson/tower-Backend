@@ -6,7 +6,7 @@ const bodyParser = require("body-parser")
 const beerRoute = require("./routes/route-beers.js")
 const wineRoute = require("./routes/route-wine.js")
 
-app.listen(process.env.PORT || 3000, () => console.log("listening on 3000!"))
+
 
 app.use(cors())
 app.use(bodyParser.json())
