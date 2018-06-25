@@ -2,6 +2,7 @@ const express = require("express")
 const morgan = require("morgan")
 const beers = require("./testapi.json")
 const app = express()
+const database = require("database_connection")
 
 app.use(morgan("dev"))
 
