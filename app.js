@@ -7,6 +7,7 @@ const beerRoute = require("./routes/route-beers.js")
 const wineRoute = require("./routes/route-wine.js")
 
 app.use(cors())
+app.listen(process.env.PORT || 3000)
 app.use(bodyParser.json())
 app.use(morgan("dev"))
 app.use("/beer", beerRoute)
