@@ -1,23 +1,24 @@
 const express = require("express")
 const morgan = require("morgan")
-const bodyParser = require("body-parser")
 const app = express()
 const database = require("./database_connection")
+
+const bodyParser = require("body-parser")
+const beerRoute = require("./routes/route-beers.js")
+const wineRoute = require("./routes/route-wine.js")
+
+
 
 app.use(bodyParser.json())
 app.use(morgan("dev"))
 
-app.get("/beer", (req, res, next) => {
-    database("beer").select().then( beer => {
-        res.json({beer})
-    })
-})
 
-app.get("/wine", (req, res, next) => {
-    database("wine").select().then( wine => {
-        res.json({wine})
-    })
-})
+
+app.use("/beer", beerRoute)
+app.use("/wine", wineRoute)
+
+
+
 
 app.post("/beer", (req, res, next) =>{
     database("beer").insert({brewery: request.body.brewery})
