@@ -10,23 +10,23 @@ module.exports = {
             .where("id", id)
             .first()
     },
-    create(resolution) {
+    create(body) {
         return database("beer")
             .select()
-            .insert(resolution)
+            .insert(body)
             .returning("*")
             .then(record => record[0])
     },
-    update(id, resolution) {
+    update(id, beer) {
         return database("beer")
-            .update(resolution)
+            .update(beer)
             .where("id", id)
             .returning("*")
             .then(record => record[0])
     },
     delete(id) {
         return database("beer")
-            .delete()
             .where("id", id)
+            .delete()
     }
 };

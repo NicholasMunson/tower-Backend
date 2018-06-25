@@ -10,16 +10,16 @@ module.exports = {
             .where("id", id)
             .first()
     },
-    create(resolution) {
+    create(body) {
         return database("wine")
             .select()
-            .insert(resolution)
+            .insert(body)
             .returning("*")
             .then(record => record[0])
     },
-    update(id, resolution) {
+    update(id, wine) {
         return database("wine")
-            .update(resolution)
+            .update(wine)
             .where("id", id)
             .returning("*")
             .then(record => record[0])

@@ -18,7 +18,7 @@ router.get("/:id", (request, response, next) => {
 
 router.post("/", (request, response, next) => {
     queries.create(request.body).then(beer => {
-        response.status(201).json({beer: beer});
+        response.status(201).json({Posted: beer});
     }).catch(next);
 });
 
@@ -30,7 +30,7 @@ router.delete("/:id", (request, response, next) => {
 
 router.put("/:id", (request, response, next) => {
     queries.update(request.params.id, request.body).then(beer => {
-        response.json({beer: beer[0]});
+        response.json({updated: beer[0]});
     }).catch(next);
 });
 
